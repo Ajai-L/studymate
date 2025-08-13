@@ -1,0 +1,62 @@
+:root {
+  --spring-green: #00FF7F;
+  --white: #ffffff;
+  --grey: #f0f0f0;
+}
+
+body {
+  background: var(--grey);
+}
+
+.navbar-brand {
+  color: var(--spring-green) !important;
+}
+
+.btn-success {
+  background-color: var(--spring-green);
+  border-color: var(--spring-green);
+  color: #0b3d2e;
+}
+.btn-outline-success {
+  color: #0b3d2e;
+  border-color: var(--spring-green);
+}
+.btn-outline-success:hover {
+  background-color: var(--spring-green);
+  color: #0b3d2e;
+}
+
+.chat-window {
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  padding: 12px;
+  height: 50vh;
+  overflow-y: auto;
+}
+
+.chat-message {
+  display: flex;
+  margin-bottom: 10px;
+}
+.chat-message.user { justify-content: flex-end; }
+.chat-message.ai { justify-content: flex-start; }
+
+.chat-message .bubble {
+  padding: 10px 14px;
+  border-radius: 16px;
+  max-width: 85%;
+  white-space: pre-wrap;
+}
+.chat-message.user .bubble {
+  background: var(--spring-green);
+  color: #0b3d2e;
+}
+.chat-message.ai .bubble {
+  background: #f8f9fa;
+  border: 1px solid #e6e6e6;
+}
+.download-links { font-size: 0.85rem; margin-top: 4px; }
+
+.card { border: none; }
+.card .card-body { background: #fff; }
