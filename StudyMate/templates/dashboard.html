@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row g-4">
+  <div class="col-lg-7">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h4 class="mb-3">Profile</h4>
+        <form method="POST" action="{{ url_for('update_profile') }}">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+          <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input class="form-control" name="name" value="{{ user.name }}" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Preferred Exam</label>
+            <select name="preferred_exam" class="form-select">
+              <option value="" {% if not user.settings or not user.settings.preferred_exam %}selected{% endif %}>None</option>
+              {% for exam in ['GATE','JEE','NEET'] %}
+                <option value="{{ exam }}" {% if user.settings and user.settings.preferred_exam == exam %}selected{% endif %}>{{ exam }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Change Password</label>
+            <input type="password" class="form-control" name="password" placeholder="Leave blank to keep current">
+          </div>
+          <button class="btn btn-success">Save Changes</button>
+          <a class="btn btn-outline-success ms-2" href="{{ url_for('chat') }}">Go to Chat</a>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-5">
+    <div class="card shadow-sm h-100">
+      <div class="card-body d-flex flex-column">
+        <h5>Recent Uploads</h5>
+        <div class="list-group flex-grow-1 overflow-auto" style="max-height: 300px;">
+          {% if recent_files %}
+            {% for f in recent_files %}
+              <div class="list-group-item d-flex justify-content-between align-items-center">
+                <div>
+                  <div class="fw-semibold">{{ f.original_filename }}</div>
+                  <div class="text-muted small">{{ (f.size_bytes/1024)|round(1) }} KB • {{ f.created_at.strftime('%Y-%m-%d %H:%M') }}</div>
+                </div>
+              </div>
+            {% endfor %}
+          {% else %}
+            <div class="text-muted">No uploads yet.</div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
