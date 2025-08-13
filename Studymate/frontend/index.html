@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studymate - Your Learning Companion</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <h1 class="logo">Studymate</h1>
+                <ul class="nav-menu">
+                    <li><a href="#dashboard">Dashboard</a></li>
+                    <li><a href="#study-groups">Study Groups</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                    <li><a href="#progress">Progress</a></li>
+                    <li><a href="#profile">Profile</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="hero-content">
+                <h2>Welcome to Studymate</h2>
+                <p>Your intelligent learning companion for collaborative study</p>
+                <button class="cta-button" onclick="showLogin()">Get Started</button>
+            </div>
+        </section>
+
+        <section id="features">
+            <div class="container">
+                <h3>Features</h3>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h4>Study Groups</h4>
+                        <p>Create and join study groups with classmates</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Resource Sharing</h4>
+                        <p>Share and access study materials and resources</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Progress Tracking</h4>
+                        <p>Monitor your learning progress and achievements</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="login-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close" onclick="closeLogin()">&times;</span>
+                <h3>Login to Studymate</h3>
+                <form id="loginForm">
+                    <input type="email" id="email" placeholder="Email" required>
+                    <input type="password" id="password" placeholder="Password" required>
+                    <button type="submit">Login</button>
+                </form>
+                <p>Don't have an account? <a href="#" onclick="showRegister()">Register here</a></p>
+            </div>
+        </section>
+
+        <section id="register-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close" onclick="closeRegister()">&times;</span>
+                <h3>Register for Studymate</h3>
+                <form id="registerForm">
+                    <input type="text" id="regName" placeholder="Full Name" required>
+                    <input type="email" id="regEmail" placeholder="Email" required>
+                    <input type="password" id="regPassword" placeholder="Password" required>
+                    <button type="submit">Register</button>
+                </form>
+                <p>Already have an account? <a href="#" onclick="showLogin()">Login here</a></p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Studymate. All rights reserved.</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
